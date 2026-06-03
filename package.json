@@ -34,6 +34,8 @@
 	"devDependencies": {
 		"@types/fs-extra": "^11.0.4",
 		"@types/node": "^22.10.2",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.7",
 		"tsx": "^4.19.2",
 		"typescript": "^5.7.2"
 	},
