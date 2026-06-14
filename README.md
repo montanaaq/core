@@ -1,4 +1,4 @@
-# MontanaAQ Configs
+# Montana Configs
 
 Shared frontend configuration packages published under the `@montanaaq/*`
 scope.
@@ -33,7 +33,7 @@ Use it from `package.json`:
 Or from `prettier.config.cjs`:
 
 ```js
-module.exports = require('@montanaaq/prettier')
+module.exports = require("@montanaaq/prettier");
 ```
 
 ## ESLint
@@ -45,14 +45,14 @@ npm install -D eslint typescript @eslint/js typescript-eslint @montanaaq/eslint
 Use it from `eslint.config.js`:
 
 ```js
-import config from '@montanaaq/eslint'
+import config from "@montanaaq/eslint";
 
 export default [
   ...config,
   {
-    rules: {}
-  }
-]
+    rules: {},
+  },
+];
 ```
 
 The shared ESLint package is intentionally generic. It includes the JS/TS base
