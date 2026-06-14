@@ -1,0 +1,17 @@
+{
+  "name": "@montanaaq/biome",
+  "version": "0.1.0",
+  "description": "Shared Biome configuration.",
+  "files": [
+    "biome.json"
+  ],
+  "exports": {
+    "./biome.json": "./biome.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": ">=2"
+  }
+}

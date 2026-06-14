@@ -1,0 +1,22 @@
+{
+  "name": "@montanaaq/eslint",
+  "version": "0.1.0",
+  "description": "Shared ESLint flat configuration.",
+  "files": [
+    "eslint.config.js"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./eslint.config.js",
+    "./eslint.config.js": "./eslint.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@eslint/js": ">=9",
+    "eslint": ">=9",
+    "typescript": ">=5",
+    "typescript-eslint": ">=8"
+  }
+}

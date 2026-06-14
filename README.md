@@ -1,128 +1,145 @@
-# Frontend Toolkit
+# MontanaAQ Configs
 
-CLI tool for copying shared frontend config packages and documentation into any project.
+Shared frontend configuration packages published under the `@montanaaq/*`
+scope.
 
-## Install
+There is no `toolkit add` flow anymore. Install the config package you need and
+wire it into the consuming project explicitly.
 
-For local development, link the CLI from this repository:
+## Packages
 
-```bash
-npm install
-npm run build
-npm link
-```
+- `@montanaaq/biome`
+- `@montanaaq/eslint`
+- `@montanaaq/husky`
+- `@montanaaq/oxfmt`
+- `@montanaaq/oxlint`
+- `@montanaaq/prettier`
+- `@montanaaq/ts-config`
 
-Then use `toolkit` from any project directory:
-
-```bash
-toolkit list
-```
-
-After publishing to npm, you can run it with:
+## Prettier
 
 ```bash
-npx frontend-toolkit list
+npm install -D prettier @montanaaq/prettier
 ```
 
-Or install it globally:
+Use it from `package.json`:
+
+```json
+{
+  "prettier": "@montanaaq/prettier"
+}
+```
+
+Or from `prettier.config.cjs`:
+
+```js
+module.exports = require('@montanaaq/prettier')
+```
+
+## ESLint
 
 ```bash
-npm install -g frontend-toolkit
-toolkit list
+npm install -D eslint typescript @eslint/js typescript-eslint @montanaaq/eslint
 ```
 
-## Available Resources
+Use it from `eslint.config.js`:
 
-Show all registered packages and docs:
+```js
+import config from '@montanaaq/eslint'
+
+export default [
+  ...config,
+  {
+    rules: {}
+  }
+]
+```
+
+The shared ESLint package is intentionally generic. It includes the JS/TS base
+config and common rules only. Framework plugins, test runner plugins, import
+rules, accessibility rules, and local overrides belong in the consuming project.
+
+## TypeScript
 
 ```bash
-toolkit list
+npm install -D typescript @montanaaq/ts-config
 ```
 
-## Add Packages
+Use it from `tsconfig.json`:
 
-Copy one package into the current project:
+```json
+{
+  "extends": "@montanaaq/ts-config/tsconfig.json",
+  "include": ["src"]
+}
+```
+
+The shared config contains compiler rules plus the `@/* -> ./src/*` alias. It
+does not include app, Node, DOM, JSX, Vite, or emit settings.
+
+## Biome
 
 ```bash
-toolkit add biome
+npm install -D @biomejs/biome @montanaaq/biome
 ```
 
-Copy multiple packages:
+Use it from `biome.json`:
+
+```json
+{
+  "extends": ["./node_modules/@montanaaq/biome/biome.json"]
+}
+```
+
+## Oxlint
 
 ```bash
-toolkit add biome prettier eslint husky ts-config
+npm install -D oxlint @montanaaq/oxlint
 ```
 
-Available packages:
+Use it from `.oxlintrc.json`:
 
-- `biome`
-- `prettier`
-- `eslint`
-- `husky`
-- `ts-config`
+```json
+{
+  "extends": ["./node_modules/@montanaaq/oxlint/.oxlintrc.json"],
+  "rules": {}
+}
+```
 
-## Add Docs
-
-Copy one documentation file:
+## Oxfmt
 
 ```bash
-toolkit add-doc AGENTS
+npm install -D oxfmt @montanaaq/oxfmt
 ```
 
-Copy multiple documentation files:
+Use the shared config explicitly:
 
 ```bash
-toolkit add-doc AGENTS ARCHITECTURE
+oxfmt -c ./node_modules/@montanaaq/oxfmt/.oxfmtrc.json .
 ```
 
-Available docs:
+For editor auto-discovery, copy the package config into `.oxfmtrc.json` in the
+consuming project.
 
-- `AGENTS`
-- `ARCHITECTURE`
-
-## Add Everything
-
-Copy all registered packages and docs:
+## Husky
 
 ```bash
-toolkit add-all
+npm install -D husky @montanaaq/husky
 ```
 
-## Flags
-
-Preview changes without writing files:
-
-```bash
-toolkit add biome --dry-run
-toolkit add-doc AGENTS --dry-run
-toolkit add-all --dry-run
-```
-
-Overwrite existing files without confirmation:
-
-```bash
-toolkit add biome --force
-toolkit add-doc AGENTS --force
-toolkit add-all --force
-```
-
-Without `--force`, the CLI asks before overwriting existing files.
+Husky hooks must live in the consuming repository. Copy the files from
+`node_modules/@montanaaq/husky/.husky` into the project's `.husky` directory.
 
 ## Development
 
-Build the CLI:
+Install workspace dependencies:
 
 ```bash
-npm run build
+pnpm install
 ```
 
-Run the CLI directly during development:
+Create package tarballs for all workspace packages:
 
 ```bash
-npm run dev -- list
-npm run dev -- add biome --dry-run
+pnpm pack:all
 ```
-
-Register new packages in `src/registry/packages.ts`.
-
-Register new documentation files in `src/registry/docs.ts`.

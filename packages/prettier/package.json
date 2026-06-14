@@ -1,0 +1,20 @@
+{
+  "name": "@montanaaq/prettier",
+  "version": "0.1.0",
+  "description": "Shared Prettier configuration.",
+  "files": [
+    ".prettierrc.json",
+    "index.cjs"
+  ],
+  "main": "index.cjs",
+  "exports": {
+    ".": "./index.cjs",
+    "./.prettierrc.json": "./.prettierrc.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "prettier": ">=3"
+  }
+}

@@ -1,62 +1,23 @@
-import js from "@eslint/js";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js'
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-	{
-		ignores: ["dist", "build", "coverage", "node_modules"],
-	},
+  {
+    ignores: ['dist', 'build', 'coverage', 'node_modules']
+  },
 
-	js.configs.recommended,
+  js.configs.recommended,
 
-	...tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
 
-	{
-		files: ["**/*.{ts,tsx,js,jsx}"],
+  {
+    files: ['**/*.{ts,tsx,js,jsx,mts,cts,mjs,cjs}'],
 
-		plugins: {
-			"jsx-a11y": jsxA11y,
-			"react-hooks": reactHooks,
-			"react-refresh": reactRefresh,
-		},
-
-		rules: {
-			/**
-			 * Аналог suspicious.noExplicitAny = off
-			 */
-			"@typescript-eslint/no-explicit-any": "off",
-
-			/**
-			 * Аналог style.noUnusedTemplateLiteral = off
-			 */
-			"no-template-curly-in-string": "off",
-
-			/**
-			 * Дополнительные полезные проверки
-			 */
-			"no-console": "warn",
-			"no-debugger": "error",
-
-			/**
-			 * React Hooks
-			 */
-			...reactHooks.configs.recommended.rules,
-
-			/**
-			 * React Refresh (Vite)
-			 */
-			"react-refresh/only-export-components": [
-				"warn",
-				{ allowConstantExport: true },
-			],
-		},
-	},
-
-	{
-		files: ["**/*.{jsx,tsx}"],
-
-		...jsxA11y.flatConfigs.recommended,
-	},
-);
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      'no-template-curly-in-string': 'off',
+      'no-console': 'warn',
+      'no-debugger': 'error'
+    }
+  }
+)
