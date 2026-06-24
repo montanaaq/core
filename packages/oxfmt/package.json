@@ -1,6 +1,6 @@
 {
   "name": "@montanaaq/oxfmt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Oxfmt configuration.",
   "files": [
     ".oxfmtrc.json"
@@ -9,7 +9,7 @@
     "./.oxfmtrc.json": "./.oxfmtrc.json"
   },
   "peerDependencies": {
-    "oxfmt": ">=0"
+    "oxfmt": "*"
   },
   "publishConfig": {
     "access": "public"

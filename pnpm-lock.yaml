@@ -11,52 +11,52 @@ importers:
   packages/biome:
     dependencies:
       '@biomejs/biome':
-        specifier: '>=2'
+        specifier: '*'
         version: 2.5.0
 
   packages/eslint:
     dependencies:
       '@eslint/js':
-        specifier: '>=9'
+        specifier: '*'
         version: 10.0.1(eslint@10.5.0)
       eslint:
-        specifier: '>=9'
+        specifier: '*'
         version: 10.5.0
       typescript:
-        specifier: '>=5'
+        specifier: '*'
         version: 6.0.3
       typescript-eslint:
-        specifier: '>=8'
+        specifier: '*'
         version: 8.61.0(eslint@10.5.0)(typescript@6.0.3)
 
   packages/husky:
     dependencies:
       husky:
-        specifier: '>=9'
+        specifier: '*'
         version: 9.1.7
 
   packages/oxfmt:
     dependencies:
       oxfmt:
-        specifier: '>=0'
+        specifier: '*'
         version: 0.54.0
 
   packages/oxlint:
     dependencies:
       oxlint:
-        specifier: '>=0'
+        specifier: '*'
         version: 1.69.0
 
   packages/prettier:
     dependencies:
       prettier:
-        specifier: '>=3'
+        specifier: '*'
         version: 3.8.4
 
   packages/ts-config:
     dependencies:
       typescript:
-        specifier: '>=5'
+        specifier: '*'
         version: 6.0.3
 
 packages:

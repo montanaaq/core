@@ -1,6 +1,6 @@
 {
   "name": "@montanaaq/husky",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Husky hooks.",
   "files": [
     ".husky"
@@ -9,6 +9,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "husky": ">=9"
+    "husky": "*"
   }
 }

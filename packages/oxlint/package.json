@@ -1,6 +1,6 @@
 {
   "name": "@montanaaq/oxlint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Oxlint configuration.",
   "files": [
     ".oxlintrc.json"
@@ -12,6 +12,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "oxlint": ">=0"
+    "oxlint": "*"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@montanaaq/prettier",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Prettier configuration.",
   "files": [
     ".prettierrc.json",
@@ -15,6 +15,6 @@
     "access": "public"
   },
   "peerDependencies": {
-    "prettier": ">=3"
+    "prettier": "*"
   }
 }
